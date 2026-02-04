@@ -50,14 +50,12 @@ This project provides a modular architecture to support the diverse ecosystem of
 | Package      | Path               | Description                                                                                          |
 | :----------- | :----------------- | :--------------------------------------------------------------------------------------------------- |
 | **Generic**  | `skills/`          | Universal skills applicable to most coding agents (e.g., specific language patterns, generic tools). |
-| **OpenClaw** | `skills/openclaw/` | Specialized skills designed for the [OpenClaw](https://github.com/openclaw/openclaw) agent runtime.  |
 | **Legacy**   | `skills/`          | Includes the classic "Antigravity" collection of 600+ skills.                                        |
 
-For a deep dive into the structure, see [ARCHITECTURE.md](ARCHITECTURE.md).
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
