@@ -3,7 +3,7 @@ name: Skill Request
 about: Suggest a new skill for the collection
 title: "[REQ] "
 labels: enhancement
-assignees: sickn33
+assignees: legendaryabhi
 ---
 
 **Is your feature request related to a problem? Please describe.**
