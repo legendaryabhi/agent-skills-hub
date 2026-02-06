@@ -3,6 +3,8 @@
 const { spawnSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
+const os = require('os');
+
 
 const REPO = 'https://github.com/legendaryabhi/agent-skills-hub.git';
 const HOME = process.env.HOME || process.env.USERPROFILE || '';
@@ -18,21 +20,25 @@ function parseArgs() {
   let pathArg = null;
   let versionArg = null;
   let tagArg = null;
-  let cursor = false, claude = false, gemini = false, codex = false;
+  let skillName = null;
+  let cursor = false, claude = false, gemini = false, codex = false, openclaw = false;
 
   for (let i = 0; i < a.length; i++) {
     if (a[i] === '--help' || a[i] === '-h') return { help: true };
     if (a[i] === '--path' && a[i + 1]) { pathArg = a[++i]; continue; }
     if (a[i] === '--version' && a[i + 1]) { versionArg = a[++i]; continue; }
     if (a[i] === '--tag' && a[i + 1]) { tagArg = a[++i]; continue; }
+    if (a[i] === '--skill' && a[i + 1]) { skillName = a[++i]; continue; }
     if (a[i] === '--cursor') { cursor = true; continue; }
     if (a[i] === '--claude') { claude = true; continue; }
     if (a[i] === '--gemini') { gemini = true; continue; }
     if (a[i] === '--codex') { codex = true; continue; }
+    if (a[i] === '--openclaw') { openclaw = true; continue; }
     if (a[i] === 'install') continue;
+    if (!a[i].startsWith('-') && !skillName) { skillName = a[i]; continue; }
   }
 
-  return { pathArg, versionArg, tagArg, cursor, claude, gemini, codex };
+  return { pathArg, versionArg, tagArg, skillName, cursor, claude, gemini, codex, openclaw };
 }
 
 function defaultDir(opts) {
@@ -40,6 +46,7 @@ function defaultDir(opts) {
   if (opts.cursor) return path.join(HOME, '.cursor', 'skills');
   if (opts.claude) return path.join(HOME, '.claude', 'skills');
   if (opts.gemini) return path.join(HOME, '.gemini', 'skills');
+  if (opts.openclaw) return path.join(HOME, '.openclaw', 'skills');
   if (opts.codex) {
     const codexHome = process.env.CODEX_HOME;
     if (codexHome) return path.join(codexHome, 'skills');
@@ -52,15 +59,17 @@ function printHelp() {
   console.log(`
 agent-skills-hub — installer
 
-  npx agent-skills-hub [install] [options]
+  npx agent-skills-hub [install] [skill-name] [options]
 
-  Clones the skills repo into your agent's skills directory.
+  Clones the skills repo or installs a specific skill.
 
 Options:
+  --skill <name>   Install only the specified skill
   --cursor    Install to ~/.cursor/skills (Cursor)
   --claude    Install to ~/.claude/skills (Claude Code)
   --gemini    Install to ~/.gemini/skills (Gemini CLI)
   --codex     Install to ~/.codex/skills (Codex CLI)
+  --openclaw  Install to ~/.openclaw/skills (OpenClaw)
   --path <dir> Install to <dir> (default: ~/.agent/skills)
   --version <ver>  After clone, checkout tag v<ver> (e.g. 4.6.0 -> v4.6.0)
   --tag <tag>      After clone, checkout this tag (e.g. v4.6.0)
@@ -68,6 +77,8 @@ Options:
 Examples:
   npx agent-skills-hub
   npx agent-skills-hub --cursor
+  npx agent-skills-hub install react-patterns --cursor
+  npx agent-skills-hub --openclaw
   npx agent-skills-hub --version 4.6.0
   npx agent-skills-hub --path ./my-skills
 `);
@@ -80,7 +91,7 @@ function run(cmd, args, opts = {}) {
 
 function main() {
   const opts = parseArgs();
-  const { tagArg, versionArg } = opts;
+  const { tagArg, versionArg, skillName } = opts;
 
   if (opts.help) {
     printHelp();
@@ -93,6 +104,64 @@ function main() {
     process.exit(1);
   }
 
+  // If installing a single skill, we need to clone to a temp dir first
+  if (skillName) {
+    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'agent-skills-hub-'));
+    try {
+      console.log(`Cloning to temporary directory to extract skill: ${skillName}…`);
+      run('git', ['clone', '--depth', '1', REPO, tempDir], { stdio: 'pipe' });
+
+      // Find the skill in the skills directory recursively
+      const skillsDir = path.join(tempDir, 'skills');
+      let foundSkillPath = null;
+
+      if (fs.existsSync(skillsDir)) {
+        // Simple recursive search
+        const search = (dir) => {
+          const files = fs.readdirSync(dir);
+          for (const file of files) {
+            const fullPath = path.join(dir, file);
+            const stat = fs.statSync(fullPath);
+            if (stat.isDirectory()) {
+              if (file === skillName) {
+                foundSkillPath = fullPath;
+                return;
+              }
+              search(fullPath);
+            }
+            if (foundSkillPath) return;
+          }
+        };
+        search(skillsDir);
+      }
+
+      if (!foundSkillPath) {
+        console.error(`Skill '${skillName}' not found in repository.`);
+        process.exit(1);
+      }
+
+      const dest = path.join(target, skillName);
+      if (fs.existsSync(dest)) {
+        console.log(`Skill '${skillName}' already exists at ${dest}. Replacing...`);
+        fs.rmSync(dest, { recursive: true, force: true });
+      } else {
+        // Ensure parent exists
+        fs.mkdirSync(path.dirname(dest), { recursive: true });
+      }
+
+      fs.cpSync(foundSkillPath, dest, { recursive: true });
+      console.log(`Installed skill '${skillName}' to ${dest}`);
+
+    } catch (e) {
+      console.error('Error installing skill:', e);
+      process.exit(1);
+    } finally {
+      fs.rmSync(tempDir, { recursive: true, force: true });
+    }
+    return;
+  }
+
+  // Normal full clone/update logic...
   if (fs.existsSync(target)) {
     const gitDir = path.join(target, '.git');
     if (fs.existsSync(gitDir)) {

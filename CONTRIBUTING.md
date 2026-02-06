@@ -1,11 +1,11 @@
-# 🤝 Contributing Guide - V4 Enterprise Edition
+# Contributing Guide - V4 Enterprise Edition
 
 **Thank you for wanting to make this repo better!** This guide shows you exactly how to contribute, even if you're new to open source.
 With V4, we raised the bar for quality. Please read the **new Quality Standards** below carefully.
 
 ---
 
-## 🧐 The "Quality Bar" (V4 Standard)
+## The "Quality Bar" (V4 Standard)
 
 **Critical for new skills:** Every skill submitted must pass our **5-Point Quality Check** (see `docs/QUALITY_BAR.md` for details):
 
@@ -125,8 +125,8 @@ code example here
 
 ## Best Practices
 
-- ✅ Do this
-- ❌ Don't do this
+- Do this
+- Don't do this
 ```
 
 #### Step 4: Validate (CRITICAL V4 STEP)
@@ -140,10 +140,10 @@ npm run validate:strict # strict mode (what CI runs)
 
 This checks:
 
-- ✅ `SKILL.md` exists
-- ✅ Frontmatter is correct
-- ✅ Name matches folder name
-- ✅ Quality Bar checks passed
+- `SKILL.md` exists
+- Frontmatter is correct
+- Name matches folder name
+- Quality Bar checks passed
 
 #### Step 5: Submit Your Skill
 
