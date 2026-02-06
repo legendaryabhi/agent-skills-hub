@@ -115,8 +115,6 @@ Skills work across **OpenClaw, Claude Code, Cursor, Gemini CLI**, and more.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 ## Getting Started
 
 ### Prerequisites
@@ -126,6 +124,7 @@ Skills work across **OpenClaw, Claude Code, Cursor, Gemini CLI**, and more.
 - Any supported agent framework (optional)
 
 
+
 ### Installation
 
 The fastest way to get started is via **NPX**.
@@ -133,9 +132,35 @@ The fastest way to get started is via **NPX**.
 ```bash
 # Install skills globally (default: ~/.agent/skills)
 npx agent-skills-hub
-````
 
-#### Targeted Installs
+```
+
+This installs the full skill registry in a global location that most agents can read from.
+
+
+### Project-Local Skills (Recommended)
+
+For repo-aware agents, you can keep skills **inside your project**.
+
+Create a `skills/` directory at your project root:
+
+```bash
+git clone https://github.com/legendaryabhi/agent-skills-hub.git ./skills
+
+```
+
+Each skill folder must contain a **`SKILL.md`** file.
+
+Supported agents will **automatically detect and load local skills at runtime**, giving your agent full project context without any extra configuration.
+
+> **Priority rule:**
+> Project-local skills override global skills when both exist.
+
+
+
+### Targeted Installs
+
+Install skills directly into agent-specific locations:
 
 ```bash
 # Cursor
@@ -146,20 +171,37 @@ npx agent-skills-hub --claude
 
 # OpenClaw
 npx agent-skills-hub --openclaw
+
+# Gemini CLI
+npx agent-skills-hub --gemini
 ```
 
-#### Install a Specific Skill
+
+
+### Install a Specific Skill
 
 ```bash
 npx agent-skills-hub install react-patterns
 npx agent-skills-hub install react-patterns --cursor
 ```
 
-#### Manual Clone (Advanced)
+This installs only the requested skill instead of the full registry.
+
+
+
+### Manual Clone (Advanced)
+
+If you prefer full control:
 
 ```bash
-git clone https://github.com/legendaryabhi/agent-skills-hub.git ~/.agent/skills
+git clone https://github.com/legendaryabhi/agent-skills-hub.git ~/skills
 ```
+
+You can then:
+
+* Symlink skills into agent directories
+* Copy skills into your project’s `skills/` folder
+* Customize skills directly
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -192,8 +234,6 @@ Example:
 Help me refactor this component using the loaded patterns.
 ```
 
-
-
 ### Cursor / VS Code
 
 1. Install skills to:
@@ -207,15 +247,18 @@ Help me refactor this component using the loaded patterns.
    @react-best-practices How should I structure this useEffect?
    ```
 
-
-
 ### Demos
 
-You can add:
+Gemini CLI using `react-patterns` skill from Agent Skills Hub
 
-* CLI recordings (asciinema)
-* GIF walkthroughs
-* Real agent transcripts
+
+```bash
+npx agent-skills-hub install react-patterns --gemini
+```
+
+https://github.com/user-attachments/assets/f01c532e-7f21-4543-8bed-ab8a4ecfe288
+
+
 
 > PRs with demos are highly welcome.
 
@@ -227,7 +270,7 @@ You can add:
 
 We currently maintain **630+ skills** across multiple domains.
 
-👉 **Browse the full catalog:**
+ **Browse the full catalog:**
 [CATALOG.md](CATALOG.md)
 
 ### Category Highlights
