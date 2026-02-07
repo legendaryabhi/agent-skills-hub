@@ -1,8 +1,8 @@
-# 🛡️ Security Guardrails & Policy
+# Security Guardrails & Policy
 
-Antigravity Awesome Skills is a powerful toolkit. With great power comes great responsibility. This document defines the **Rules of Engagement** for all security and offensive capabilities in this repository.
+Agent Skills Hub is a powerful toolkit. With great power comes great responsibility. This document defines the **Rules of Engagement** for all security and offensive capabilities in this repository.
 
-## 🔴 Offensive Skills Policy (The "Red Line")
+## Offensive Skills Policy (The "Red Line")
 
 **What is an Offensive Skill?**
 Any skill designed to penetrate, exploit, disrupt, or simulate attacks against systems.
@@ -31,7 +31,7 @@ Offensive skills must **NEVER** run fully autonomously.
 
 ---
 
-## 🔵 Defensive Skills Policy
+## Defensive Skills Policy
 
 **What is a Defensive Skill?**
 Tools for hardening, auditing, monitoring, or protecting systems.
@@ -42,7 +42,7 @@ _Examples: Linting, Log Analysis, Configuration Auditing._
 
 ---
 
-## ⚖️ Legal Disclaimer
+## Legal Disclaimer
 
 By using this repository, you agree that:
 

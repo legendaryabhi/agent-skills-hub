@@ -328,9 +328,10 @@ This project is built on top of
 [antigravity-awesome-skills](https://github.com/sickn33/antigravity-awesome-skills) [MIT license](https://github.com/sickn33/antigravity-awesome-skills?tab=MIT-1-ov-file#readme).
 
 On top of the original work, I have added:
-- Support for multiple AI agent workflows
+- Support for multiple AI agent workflows (OpenClaw)
 - A single-file skill download workflow
 - NPX-based installation and agent-specific integrations
+- more are coming soon...
 
 Thanks to the original authors for laying the foundation.
  

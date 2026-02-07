@@ -2,7 +2,7 @@
 
 Please include a summary of the change and which skill is added or fixed.
 
-## Quality Bar Checklist ✅
+## Quality Bar Checklist
 
 **All items must be checked before merging.**
 
