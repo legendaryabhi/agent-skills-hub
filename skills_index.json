@@ -31,7 +31,7 @@
     "path": "skills/ab-test-setup",
     "category": "uncategorized",
     "name": "ab-test-setup",
-    "description": "Structured guide for setting up A/B tests with mandatory gates for hypothesis, metrics, and execution readiness.",
+    "description": "When the user wants to plan, design, or implement an A/B test or experiment. Also use when the user mentions \"A/B test,\" \"split test,\" \"experiment,\" \"test this change,\" \"variant copy,\" \"multivariate test,\" or \"hypothesis.\" For tracking implementation, see analytics-tracking.",
     "risk": "unknown",
     "source": "unknown"
   },
@@ -50,6 +50,15 @@
     "category": "uncategorized",
     "name": "Active Directory Attacks",
     "description": "This skill should be used when the user asks to \"attack Active Directory\", \"exploit AD\", \"Kerberoasting\", \"DCSync\", \"pass-the-hash\", \"BloodHound enumeration\", \"Golden Ticket\", \"Silver Ticket\", \"AS-REP roasting\", \"NTLM relay\", or needs guidance on Windows domain penetration testing.",
+    "risk": "unknown",
+    "source": "unknown"
+  },
+  {
+    "id": "ad-creative",
+    "path": "skills/ad-creative",
+    "category": "uncategorized",
+    "name": "ad-creative",
+    "description": "When the user wants to generate, iterate, or scale ad creative \u2014 headlines, descriptions, primary text, or full ad variations \u2014 for any paid advertising platform. Also use when the user mentions 'ad copy variations,' 'ad creative,' 'generate headlines,' 'RSA headlines,' 'bulk ad copy,' 'ad iterations,' 'creative testing,' or 'ad performance optimization.' This skill covers generating ad creative at scale, iterating based on performance data, and enforcing platform character limits. For campaign strategy and targeting, see paid-ads. For landing page copy, see copywriting.",
     "risk": "unknown",
     "source": "unknown"
   },
@@ -153,6 +162,15 @@
     "source": "vibeship-spawner-skills (Apache 2.0)"
   },
   {
+    "id": "ai-seo",
+    "path": "skills/ai-seo",
+    "category": "uncategorized",
+    "name": "ai-seo",
+    "description": "When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-generated answers. Also use when the user mentions 'AI SEO,' 'AEO,' 'GEO,' 'LLMO,' 'answer engine optimization,' 'generative engine optimization,' 'LLM optimization,' 'AI Overviews,' 'optimize for ChatGPT,' 'optimize for Perplexity,' 'AI citations,' 'AI visibility,' or 'zero-click search.' This skill covers content optimization for AI answer engines, monitoring AI visibility, and getting cited as a source. For traditional technical and on-page SEO audits, see seo-audit. For structured data implementation, see schema-markup.",
+    "risk": "unknown",
+    "source": "unknown"
+  },
+  {
     "id": "ai-wrapper-product",
     "path": "skills/ai-wrapper-product",
     "category": "uncategorized",
@@ -193,7 +211,7 @@
     "path": "skills/analytics-tracking",
     "category": "uncategorized",
     "name": "analytics-tracking",
-    "description": "Design, audit, and improve analytics tracking systems that produce reliable, decision-ready data. Use when the user wants to set up, fix, or evaluate analytics tracking (GA4, GTM, product analytics, events, conversions, UTMs). This skill focuses on measurement strategy, signal quality, and validation\u2014 not just firing events.",
+    "description": "When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when the user mentions \"set up tracking,\" \"GA4,\" \"Google Analytics,\" \"conversion tracking,\" \"event tracking,\" \"UTM parameters,\" \"tag manager,\" \"GTM,\" \"analytics implementation,\" or \"tracking plan.\" For A/B test measurement, see ab-test-setup.",
     "risk": "unknown",
     "source": "unknown"
   },
@@ -855,6 +873,15 @@
     "source": "unknown"
   },
   {
+    "id": "churn-prevention",
+    "path": "skills/churn-prevention",
+    "category": "uncategorized",
+    "name": "churn-prevention",
+    "description": "When the user wants to reduce churn, build cancellation flows, set up save offers, recover failed payments, or implement retention strategies. Also use when the user mentions 'churn,' 'cancel flow,' 'offboarding,' 'save offer,' 'dunning,' 'failed payment recovery,' 'win-back,' 'retention,' 'exit survey,' 'pause subscription,' or 'involuntary churn.' This skill covers voluntary churn (cancel flows, save offers, exit surveys) and involuntary churn (dunning, payment recovery). For post-cancel win-back email sequences, see email-sequence. For in-app upgrade paywalls, see paywall-upgrade-cro.",
+    "risk": "unknown",
+    "source": "unknown"
+  },
+  {
     "id": "cicd-automation-workflow-automate",
     "path": "skills/cicd-automation-workflow-automate",
     "category": "uncategorized",
@@ -1089,6 +1116,15 @@
     "source": "unknown"
   },
   {
+    "id": "cold-email",
+    "path": "skills/cold-email",
+    "category": "uncategorized",
+    "name": "cold-email",
+    "description": "Write B2B cold emails and follow-up sequences that get replies. Use when the user wants to write cold outreach emails, prospecting emails, cold email campaigns, sales development emails, or SDR emails. Covers subject lines, opening lines, body copy, CTAs, personalization, and multi-touch follow-up sequences.",
+    "risk": "unknown",
+    "source": "unknown"
+  },
+  {
     "id": "commit",
     "path": "skills/commit",
     "category": "uncategorized",
@@ -1242,6 +1278,15 @@
     "source": "unknown"
   },
   {
+    "id": "content-strategy",
+    "path": "skills/content-strategy",
+    "category": "uncategorized",
+    "name": "content-strategy",
+    "description": "When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions \"content strategy,\" \"what should I write about,\" \"content ideas,\" \"blog strategy,\" \"topic clusters,\" or \"content planning.\" For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit.",
+    "risk": "unknown",
+    "source": "unknown"
+  },
+  {
     "id": "context-compression",
     "path": "skills/context-compression",
     "category": "uncategorized",
@@ -1354,7 +1399,7 @@
     "path": "skills/copywriting",
     "category": "uncategorized",
     "name": "copywriting",
-    "description": "Use this skill when writing, rewriting, or improving marketing copy for any page (homepage, landing page, pricing, feature, product, or about page). This skill produces clear, compelling, and testable copy while enforcing alignment, honesty, and conversion best practices.",
+    "description": "When the user wants to write, rewrite, or improve marketing copy for any page \u2014 including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also use when the user says \"write copy for,\" \"improve this copy,\" \"rewrite this page,\" \"marketing copy,\" \"headline help,\" or \"CTA copy.\" For email copy, see email-sequence. For popup copy, see popup-cro.",
     "risk": "unknown",
     "source": "unknown"
   },
@@ -2227,7 +2272,7 @@
     "path": "skills/form-cro",
     "category": "uncategorized",
     "name": "form-cro",
-    "description": "Optimize any form that is NOT signup or account registration \u2014 including lead capture, contact, demo request, application, survey, quote, and checkout forms. Use when the goal is to increase form completion rate, reduce friction, or improve lead quality without breaking compliance or downstream workflows.",
+    "description": "When the user wants to optimize any form that is NOT signup/registration \u2014 including lead capture forms, contact forms, demo request forms, application forms, survey forms, or checkout forms. Also use when the user mentions \"form optimization,\" \"lead form conversions,\" \"form friction,\" \"form fields,\" \"form completion rate,\" or \"contact form.\" For signup/registration forms, see signup-flow-cro. For popups containing forms, see popup-cro.",
     "risk": "unknown",
     "source": "unknown"
   },
@@ -3100,7 +3145,7 @@
     "path": "skills/marketing-ideas",
     "category": "uncategorized",
     "name": "marketing-ideas",
-    "description": "Provide proven marketing strategies and growth ideas for SaaS and software products, prioritized using a marketing feasibility scoring system.",
+    "description": "When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. Also use when the user asks for 'marketing ideas,' 'growth ideas,' 'how to market,' 'marketing strategies,' 'marketing tactics,' 'ways to promote,' or 'ideas to grow.' This skill provides 139 proven marketing approaches organized by category.",
     "risk": "unknown",
     "source": "unknown"
   },
@@ -3109,7 +3154,7 @@
     "path": "skills/marketing-psychology",
     "category": "uncategorized",
     "name": "marketing-psychology",
-    "description": "Apply behavioral science and mental models to marketing decisions, prioritized using a psychological leverage and feasibility scoring system.",
+    "description": "When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when the user mentions 'psychology,' 'mental models,' 'cognitive bias,' 'persuasion,' 'behavioral science,' 'why people buy,' 'decision-making,' or 'consumer behavior.' This skill provides 70+ mental models organized for marketing application.",
     "risk": "unknown",
     "source": "unknown"
   },
@@ -3586,7 +3631,7 @@
     "path": "skills/page-cro",
     "category": "uncategorized",
     "name": "page-cro",
-    "description": "Analyze and optimize individual pages for conversion performance. Use when the user wants to improve conversion rates, diagnose why a page is underperforming, or increase the effectiveness of marketing pages (homepage, landing pages, pricing, feature pages, or blog posts). This skill focuses on diagnosis, prioritization, and testable recommendations\u2014 not blind optimization.",
+    "description": "When the user wants to optimize, improve, or increase conversions on any marketing page \u2014 including homepage, landing pages, pricing pages, feature pages, or blog posts. Also use when the user says \"CRO,\" \"conversion rate optimization,\" \"this page isn't converting,\" \"improve conversions,\" or \"why isn't this page working.\" For signup/registration flows, see signup-flow-cro. For post-signup activation, see onboarding-cro. For forms outside of signup, see form-cro. For popups/modals, see popup-cro.",
     "risk": "unknown",
     "source": "unknown"
   },
@@ -3595,7 +3640,7 @@
     "path": "skills/paid-ads",
     "category": "uncategorized",
     "name": "paid-ads",
-    "description": "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ad copy,' 'ad creative,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' or 'audience targeting.' This skill covers campaign strategy, ad creation, audience targeting, and optimization.",
+    "description": "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' or 'audience targeting.' This skill covers campaign strategy, audience targeting, and optimization. For bulk ad creative generation and iteration, see ad-creative.",
     "risk": "unknown",
     "source": "unknown"
   },
@@ -3775,7 +3820,7 @@
     "path": "skills/popup-cro",
     "category": "uncategorized",
     "name": "popup-cro",
-    "description": "Create and optimize popups, modals, overlays, slide-ins, and banners to increase conversions without harming user experience or brand trust.",
+    "description": "When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conversion purposes. Also use when the user mentions \"exit intent,\" \"popup conversions,\" \"modal optimization,\" \"lead capture popup,\" \"email popup,\" \"announcement banner,\" or \"overlay.\" For forms outside of popups, see form-cro. For general page conversion optimization, see page-cro.",
     "risk": "unknown",
     "source": "unknown"
   },
@@ -3829,7 +3874,7 @@
     "path": "skills/pricing-strategy",
     "category": "uncategorized",
     "name": "pricing-strategy",
-    "description": "Design pricing, packaging, and monetization strategies based on value, customer willingness to pay, and growth objectives.",
+    "description": "When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions 'pricing,' 'pricing tiers,' 'freemium,' 'free trial,' 'packaging,' 'price increase,' 'value metric,' 'Van Westendorp,' 'willingness to pay,' or 'monetization.' This skill covers pricing research, tier structure, and packaging strategy.",
     "risk": "unknown",
     "source": "unknown"
   },
@@ -3861,6 +3906,15 @@
     "source": "unknown"
   },
   {
+    "id": "product-marketing-context",
+    "path": "skills/product-marketing-context",
+    "category": "uncategorized",
+    "name": "product-marketing-context",
+    "description": "When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'positioning,' or wants to avoid repeating foundational information across marketing tasks. Creates `.claude/product-marketing-context.md` that other marketing skills reference.",
+    "risk": "unknown",
+    "source": "unknown"
+  },
+  {
     "id": "production-code-audit",
     "path": "skills/production-code-audit",
     "category": "uncategorized",
@@ -3874,7 +3928,7 @@
     "path": "skills/programmatic-seo",
     "category": "uncategorized",
     "name": "programmatic-seo",
-    "description": "Design and evaluate programmatic SEO strategies for creating SEO-driven pages at scale using templates and structured data. Use when the user mentions programmatic SEO, pages at scale, template pages, directory pages, location pages, comparison pages, integration pages, or keyword-pattern page generation. This skill focuses on feasibility, strategy, and page system design\u2014not execution unless explicitly requested.",
+    "description": "When the user wants to create SEO-driven pages at scale using templates and data. Also use when the user mentions \"programmatic SEO,\" \"template pages,\" \"pages at scale,\" \"directory pages,\" \"location pages,\" \"[keyword] + [city] pages,\" \"comparison pages,\" \"integration pages,\" or \"building many pages for SEO.\" For auditing existing SEO issues, see seo-audit.",
     "risk": "unknown",
     "source": "unknown"
   },
@@ -4279,7 +4333,7 @@
     "path": "skills/schema-markup",
     "category": "uncategorized",
     "name": "schema-markup",
-    "description": "Design, validate, and optimize schema.org structured data for eligibility, correctness, and measurable SEO impact. Use when the user wants to add, fix, audit, or scale schema markup (JSON-LD) for rich results. This skill evaluates whether schema should be implemented, what types are valid, and how to deploy safely according to Google guidelines.\n",
+    "description": "When the user wants to add, fix, or optimize schema markup and structured data on their site. Also use when the user mentions \"schema markup,\" \"structured data,\" \"JSON-LD,\" \"rich snippets,\" \"schema.org,\" \"FAQ schema,\" \"product schema,\" \"review schema,\" or \"breadcrumb schema.\" For broader SEO issues, see seo-audit.",
     "risk": "unknown",
     "source": "unknown"
   },
@@ -4441,7 +4495,7 @@
     "path": "skills/seo-audit",
     "category": "uncategorized",
     "name": "seo-audit",
-    "description": "Diagnose and audit SEO issues affecting crawlability, indexation, rankings, and organic performance. Use when the user asks for an SEO audit, technical SEO review, ranking diagnosis, on-page SEO review, meta tag audit, or SEO health check. This skill identifies issues and prioritizes actions but does not execute changes. For large-scale page creation, use programmatic-seo. For structured data, use schema-markup.",
+    "description": "When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user mentions \"SEO audit,\" \"technical SEO,\" \"why am I not ranking,\" \"SEO issues,\" \"on-page SEO,\" \"meta tags review,\" or \"SEO health check.\" For building pages at scale to target keywords, see programmatic-seo. For adding structured data, see schema-markup.",
     "risk": "unknown",
     "source": "unknown"
   },

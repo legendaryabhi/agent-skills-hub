@@ -15,6 +15,30 @@ function resolveDir(p) {
   return path.resolve(s);
 }
 
+function findToolReferences(skillDir) {
+  const tools = new Set();
+  const searchForTools = (dir) => {
+    if (!fs.existsSync(dir)) return;
+    const files = fs.readdirSync(dir);
+    for (const file of files) {
+      const fullPath = path.join(dir, file);
+      const stat = fs.statSync(fullPath);
+      if (stat.isDirectory()) {
+        searchForTools(fullPath);
+      } else if (file.endsWith('.md')) {
+        const content = fs.readFileSync(fullPath, 'utf8');
+        const regex = /tools\/([a-zA-Z0-9_/-]+\.[a-zA-Z0-9]+)/g;
+        let match;
+        while ((match = regex.exec(content)) !== null) {
+          tools.add(match[1]);
+        }
+      }
+    }
+  };
+  searchForTools(skillDir);
+  return Array.from(tools);
+}
+
 function parseArgs() {
   const a = process.argv.slice(2);
   let pathArg = null;
@@ -155,6 +179,35 @@ function main() {
 
       fs.cpSync(foundSkillPath, dest, { recursive: true });
       console.log(`Installed skill '${skillName}' to ${dest}`);
+
+      const toolsToInstall = findToolReferences(dest);
+      if (toolsToInstall.length > 0) {
+        console.log(`Found ${toolsToInstall.length} tool(s) referenced by this skill. Installing...`);
+        // If target is like `~/.agent/skills`, tools should go to `~/.agent/tools`
+        // If target is `./my-skills`, tools should go to `./my-tools` (or `./tools` depending on preference, we will use sibling approach)
+        const targetParentDir = path.dirname(target);
+        let toolsTargetDir;
+        if (path.basename(target) === 'skills') {
+          toolsTargetDir = path.join(targetParentDir, 'tools');
+        } else {
+          toolsTargetDir = path.join(targetParentDir, target.endsWith('-skills') ? target.replace('-skills', '-tools') : path.basename(target) + '-tools');
+        }
+
+        for (const tool of toolsToInstall) {
+          const tempToolPath = path.join(tempDir, 'tools', tool);
+          const targetToolPath = path.join(toolsTargetDir, tool);
+
+          if (fs.existsSync(tempToolPath)) {
+            if (!fs.existsSync(path.dirname(targetToolPath))) {
+              fs.mkdirSync(path.dirname(targetToolPath), { recursive: true });
+            }
+            fs.copyFileSync(tempToolPath, targetToolPath);
+            console.log(`  - Installed tool: ${tool}`);
+          } else {
+            console.warn(`  - Warning: Referenced tool '${tool}' was not found in the repository.`);
+          }
+        }
+      }
 
     } catch (e) {
       console.error('Error installing skill:', e);

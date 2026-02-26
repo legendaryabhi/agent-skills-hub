@@ -1,356 +1,229 @@
 ---
 name: pricing-strategy
-description: Design pricing, packaging, and monetization strategies based on value, customer willingness to pay, and growth objectives.
+description: "When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions 'pricing,' 'pricing tiers,' 'freemium,' 'free trial,' 'packaging,' 'price increase,' 'value metric,' 'Van Westendorp,' 'willingness to pay,' or 'monetization.' This skill covers pricing research, tier structure, and packaging strategy."
+metadata:
+  version: 1.0.0
 ---
 
 # Pricing Strategy
 
-You are an expert in pricing and monetization strategy. Your goal is to help design pricing that **captures value, supports growth, and aligns with customer willingness to pay**—without harming conversion, trust, or long-term retention.
+You are an expert in SaaS pricing and monetization strategy. Your goal is to help design pricing that captures value, drives growth, and aligns with customer willingness to pay.
 
-This skill covers **pricing research, value metrics, tier design, and pricing change strategy**.
-It does **not** implement pricing pages or experiments directly.
+## Before Starting
 
----
+**Check for product marketing context first:**
+If `.claude/product-marketing-context.md` exists, read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
 
-## 1. Required Context (Ask If Missing)
+Gather this context (ask if not provided):
 
-### 1. Business Model
+### 1. Business Context
+- What type of product? (SaaS, marketplace, e-commerce, service)
+- What's your current pricing (if any)?
+- What's your target market? (SMB, mid-market, enterprise)
+- What's your go-to-market motion? (self-serve, sales-led, hybrid)
 
-* Product type (SaaS, marketplace, service, usage-based)
-* Current pricing (if any)
-* Target customer (SMB, mid-market, enterprise)
-* Go-to-market motion (self-serve, sales-led, hybrid)
+### 2. Value & Competition
+- What's the primary value you deliver?
+- What alternatives do customers consider?
+- How do competitors price?
 
-### 2. Market & Competition
+### 3. Current Performance
+- What's your current conversion rate?
+- What's your ARPU and churn rate?
+- Any feedback on pricing from customers/prospects?
 
-* Primary value delivered
-* Key alternatives customers compare against
-* Competitor pricing models
-* Differentiation vs. alternatives
-
-### 3. Current Performance (If Existing)
-
-* Conversion rate
-* ARPU / ARR
-* Churn and expansion
-* Qualitative pricing feedback
-
-### 4. Objectives
-
-* Growth vs. revenue vs. profitability
-* Move upmarket or downmarket
-* Planned pricing changes (if any)
+### 4. Goals
+- Optimizing for growth, revenue, or profitability?
+- Moving upmarket or expanding downmarket?
 
 ---
 
-## 2. Pricing Fundamentals
+## Pricing Fundamentals
 
-### The Three Pricing Decisions
+### The Three Pricing Axes
 
-Every pricing strategy must explicitly answer:
+**1. Packaging** — What's included at each tier?
+- Features, limits, support level
+- How tiers differ from each other
 
-1. **Packaging** – What is included in each tier?
-2. **Value Metric** – What customers pay for (users, usage, outcomes)?
-3. **Price Level** – How much each tier costs
+**2. Pricing Metric** — What do you charge for?
+- Per user, per usage, flat fee
+- How price scales with value
 
-Failure in any one weakens the system.
+**3. Price Point** — How much do you charge?
+- The actual dollar amounts
+- Perceived value vs. cost
 
----
+### Value-Based Pricing
 
-## 3. Value-Based Pricing Framework
+Price should be based on value delivered, not cost to serve:
 
-Pricing should be anchored to **customer-perceived value**, not internal cost.
+- **Customer's perceived value** — The ceiling
+- **Your price** — Between alternatives and perceived value
+- **Next best alternative** — The floor for differentiation
+- **Your cost to serve** — Only a baseline, not the basis
 
-```
-Customer perceived value
-───────────────────────────────
-Your price
-───────────────────────────────
-Next best alternative
-───────────────────────────────
-Your cost to serve
-```
-
-**Rules**
-
-* Price above the next best alternative
-* Leave customer surplus (value they keep)
-* Cost is a floor, not a pricing basis
+**Key insight:** Price between the next best alternative and perceived value.
 
 ---
 
-## 4. Pricing Research Methods
+## Value Metrics
 
-### Van Westendorp (Price Sensitivity Meter)
+### What is a Value Metric?
 
-Used to identify acceptable price ranges.
+The value metric is what you charge for—it should scale with the value customers receive.
 
-**Questions**
+**Good value metrics:**
+- Align price with value delivered
+- Are easy to understand
+- Scale as customer grows
+- Are hard to game
 
-* Too expensive
-* Too cheap
-* Expensive but acceptable
-* Cheap / good value
+### Common Value Metrics
 
-**Key Outputs**
+| Metric | Best For | Example |
+|--------|----------|---------|
+| Per user/seat | Collaboration tools | Slack, Notion |
+| Per usage | Variable consumption | AWS, Twilio |
+| Per feature | Modular products | HubSpot add-ons |
+| Per contact/record | CRM, email tools | Mailchimp |
+| Per transaction | Payments, marketplaces | Stripe |
+| Flat fee | Simple products | Basecamp |
 
-* PMC (too cheap threshold)
-* PME (too expensive threshold)
-* OPP (optimal price point)
-* IDP (indifference price point)
+### Choosing Your Value Metric
 
-**Use Case**
-
-* Early pricing
-* Price increase validation
-* Segment comparison
-
----
-
-### Feature Value Research (MaxDiff / Conjoint)
-
-Used to inform **packaging**, not price levels.
-
-**Insights Produced**
-
-* Table-stakes features
-* Differentiators
-* Premium-only features
-* Low-value candidates to remove
+Ask: "As a customer uses more of [metric], do they get more value?"
+- If yes → good value metric
+- If no → price doesn't align with value
 
 ---
 
-### Willingness-to-Pay Testing
+## Tier Structure Overview
 
-| Method        | Use Case                    |
-| ------------- | --------------------------- |
-| Direct WTP    | Directional only            |
-| Gabor-Granger | Demand curve                |
-| Conjoint      | Feature + price sensitivity |
+### Good-Better-Best Framework
 
----
+**Good tier (Entry):** Core features, limited usage, low price
+**Better tier (Recommended):** Full features, reasonable limits, anchor price
+**Best tier (Premium):** Everything, advanced features, 2-3x Better price
 
-## 5. Value Metrics
+### Tier Differentiation
 
-### Definition
+- **Feature gating** — Basic vs. advanced features
+- **Usage limits** — Same features, different limits
+- **Support level** — Email → Priority → Dedicated
+- **Access** — API, SSO, custom branding
 
-The value metric is **what scales price with customer value**.
-
-### Good Value Metrics
-
-* Align with value delivered
-* Scale with customer success
-* Easy to understand
-* Difficult to game
-
-### Common Patterns
-
-| Metric             | Best For             |
-| ------------------ | -------------------- |
-| Per user           | Collaboration tools  |
-| Per usage          | APIs, infrastructure |
-| Per record/contact | CRMs, email          |
-| Flat fee           | Simple products      |
-| Revenue share      | Marketplaces         |
-
-### Validation Test
-
-> As customers get more value, do they naturally pay more?
-
-If not → metric is misaligned.
+**For detailed tier structures and persona-based packaging**: See [references/tier-structure.md](references/tier-structure.md)
 
 ---
 
-## 6. Tier Design
+## Pricing Research
 
-### Number of Tiers
+### Van Westendorp Method
 
-| Count | When to Use                    |
-| ----- | ------------------------------ |
-| 2     | Simple segmentation            |
-| 3     | Default (Good / Better / Best) |
-| 4+    | Broad market, careful UX       |
+Four questions that identify acceptable price range:
+1. Too expensive (wouldn't consider)
+2. Too cheap (question quality)
+3. Expensive but might consider
+4. A bargain
 
-### Good / Better / Best
+Analyze intersections to find optimal pricing zone.
 
-**Good**
+### MaxDiff Analysis
 
-* Entry point
-* Limited usage
-* Removes friction
+Identifies which features customers value most:
+- Show sets of features
+- Ask: Most important? Least important?
+- Results inform tier packaging
 
-**Better (Anchor)**
-
-* Where most customers should land
-* Full core value
-* Best value-per-dollar
-
-**Best**
-
-* Power users / enterprise
-* Advanced controls, scale, support
+**For detailed research methods**: See [references/research-methods.md](references/research-methods.md)
 
 ---
 
-### Differentiation Levers
+## When to Raise Prices
 
-* Usage limits
-* Advanced features
-* Support level
-* Security & compliance
-* Customization / integrations
+### Signs It's Time
 
----
+**Market signals:**
+- Competitors have raised prices
+- Prospects don't flinch at price
+- "It's so cheap!" feedback
 
-## 7. Persona-Based Packaging
+**Business signals:**
+- Very high conversion rates (>40%)
+- Very low churn (<3% monthly)
+- Strong unit economics
 
-### Step 1: Define Personas
+**Product signals:**
+- Significant value added since last pricing
+- Product more mature/stable
 
-Segment by:
+### Price Increase Strategies
 
-* Company size
-* Use case
-* Sophistication
-* Budget norms
-
-### Step 2: Map Value to Tiers
-
-Ensure each persona clearly maps to *one* tier.
-
-### Step 3: Price to Segment WTP
-
-Avoid “one price fits all” across fundamentally different buyers.
+1. **Grandfather existing** — New price for new customers only
+2. **Delayed increase** — Announce 3-6 months out
+3. **Tied to value** — Raise price but add features
+4. **Plan restructure** — Change plans entirely
 
 ---
 
-## 8. Freemium vs. Free Trial
+## Pricing Page Best Practices
 
-### Freemium Works When
+### Above the Fold
+- Clear tier comparison table
+- Recommended tier highlighted
+- Monthly/annual toggle
+- Primary CTA for each tier
 
-* Large market
-* Viral or network effects
-* Clear upgrade trigger
-* Low marginal cost
+### Common Elements
+- Feature comparison table
+- Who each tier is for
+- FAQ section
+- Annual discount callout (17-20%)
+- Money-back guarantee
+- Customer logos/trust signals
 
-### Free Trial Works When
-
-* Value requires setup
-* Higher price points
-* B2B evaluation cycles
-* Sticky post-activation usage
-
-### Hybrid Models
-
-* Reverse trials
-* Feature-limited free + premium trial
-
----
-
-## 9. Price Increases
-
-### Signals It’s Time
-
-* Very high conversion
-* Low churn
-* Customers under-paying relative to value
-* Market price movement
-
-### Increase Strategies
-
-1. New customers only
-2. Delayed increase for existing
-3. Value-tied increase
-4. Full plan restructure
+### Pricing Psychology
+- **Anchoring:** Show higher-priced option first
+- **Decoy effect:** Middle tier should be best value
+- **Charm pricing:** $49 vs. $50 (for value-focused)
+- **Round pricing:** $50 vs. $49 (for premium)
 
 ---
 
-## 10. Pricing Page Alignment (Strategy Only)
+## Pricing Checklist
 
-This skill defines **what** pricing should be.
-Execution belongs to **page-cro**.
+### Before Setting Prices
+- [ ] Defined target customer personas
+- [ ] Researched competitor pricing
+- [ ] Identified your value metric
+- [ ] Conducted willingness-to-pay research
+- [ ] Mapped features to tiers
 
-Strategic requirements:
-
-* Clear recommended tier
-* Transparent differentiation
-* Annual discount logic
-* Enterprise escape hatch
-
----
-
-## 11. Price Testing (Safe Methods)
-
-Preferred:
-
-* New-customer pricing
-* Sales-led experimentation
-* Geographic tests
-* Packaging tests
-
-Avoid:
-
-* Blind A/B price tests on same page
-* Surprise customer discovery
+### Pricing Structure
+- [ ] Chosen number of tiers
+- [ ] Differentiated tiers clearly
+- [ ] Set price points based on research
+- [ ] Created annual discount strategy
+- [ ] Planned enterprise/custom tier
 
 ---
 
-## 12. Enterprise Pricing
+## Task-Specific Questions
 
-### When to Introduce
-
-* Deals > $10k ARR
-* Custom contracts
-* Security/compliance needs
-* Sales involvement required
-
-### Common Structures
-
-* Volume-discounted per seat
-* Platform fee + usage
-* Outcome-based pricing
+1. What pricing research have you done?
+2. What's your current ARPU and conversion rate?
+3. What's your primary value metric?
+4. Who are your main pricing personas?
+5. Are you self-serve, sales-led, or hybrid?
+6. What pricing changes are you considering?
 
 ---
 
-## 13. Output Expectations
+## Related Skills
 
-This skill produces:
-
-### Pricing Strategy Document
-
-* Target personas
-* Value metric selection
-* Tier structure
-* Price rationale
-* Research inputs
-* Risks & tradeoffs
-
-### Change Recommendation (If Applicable)
-
-* Who is affected
-* Expected impact
-* Rollout plan
-* Measurement plan
-
----
-
-## 14. Validation Checklist
-
-* [ ] Clear value metric
-* [ ] Distinct tier personas
-* [ ] Research-backed price range
-* [ ] Conversion-safe entry tier
-* [ ] Expansion path exists
-* [ ] Enterprise handled explicitly
-
----
-Related Skills
-
-page-cro – Pricing page conversion
-
-copywriting – Pricing copy
-
-analytics-tracking – Measure impact
-
-ab-test-setup – Safe experimentation
-
-marketing-psychology – Behavioral pricing effects
+- **churn-prevention**: For cancel flows, save offers, and reducing revenue churn
+- **page-cro**: For optimizing pricing page conversion
+- **copywriting**: For pricing page copy
+- **marketing-psychology**: For pricing psychology principles
+- **ab-test-setup**: For testing pricing changes
